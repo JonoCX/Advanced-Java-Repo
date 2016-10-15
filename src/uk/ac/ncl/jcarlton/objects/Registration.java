@@ -67,6 +67,7 @@ public final class Registration {
      * @param third     the third component of the registration.
      * @return          a registration object, either new or one
      *                  that was previously created.
+     * @throws IllegalArgumentException thrown when the object is being created.
      */
     public static Registration getInstance(String first, int second, String third) {
         final String check = first.toUpperCase() + second + " " + third.toUpperCase();
