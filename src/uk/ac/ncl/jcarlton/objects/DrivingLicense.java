@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class DrivingLicense {
 
+    // state member variables
     private final String firstComponent;
     private final Date secondComponent;
     private final int thirdComponent;
@@ -64,7 +65,7 @@ public class DrivingLicense {
         return fullLicense;
     }
 
-    public static String processName(Person person) {
+    private static String processName(Person person) {
         String firstInitial = person.getFirstName().substring(0, 1);
         String secondInitial = person.getLastName().substring(0, 1);
         String concat = firstInitial + secondInitial;

@@ -8,7 +8,8 @@ import uk.ac.ncl.jcarlton.objects.Person;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * <h1>DrivingLicenceTest</h1>
@@ -41,17 +42,9 @@ public class DrivingLicenseTest {
      *
      */
     @Test
-    public void getInstance() {
-
-    }
-
-    /**
-     *
-     */
-    @Test
     public void testToString() {
-        String test = "JC-2011-" + license.getThirdComponent();
-        assertEquals(test, license.toString());
+        String expected = "JC-2011-" + license.getThirdComponent();
+        assertEquals(expected, license.toString());
     }
 
     /**
@@ -59,7 +52,7 @@ public class DrivingLicenseTest {
      */
     @Test
     public void getFirstComponent() {
-
+        assertEquals("JC", license.getFirstComponent());
     }
 
     /**
@@ -67,15 +60,8 @@ public class DrivingLicenseTest {
      */
     @Test
     public void getSecondComponent() {
-
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void getThirdComponent() {
-
+        Calendar calendar = new GregorianCalendar(2011, 1, 1);
+        assertEquals(calendar.getTime(), license.getSecondComponent());
     }
 
     /**
@@ -83,16 +69,19 @@ public class DrivingLicenseTest {
      */
     @Test
     public void isFullLicense() {
-
+        assertTrue(license.isFullLicense());
     }
 
     /**
      *
      */
-    @Test
+/*    @Test
     public void processName() {
-
-    }
+        Calendar calendar = new GregorianCalendar(1993, 8, 27);
+        Person p = new Person("Jonathan", "Carlton", calendar.getTime());
+        String expected = "JC";
+        assertEquals(expected, DrivingLicense.processName(p));
+    }*/
 
     /**
      *
