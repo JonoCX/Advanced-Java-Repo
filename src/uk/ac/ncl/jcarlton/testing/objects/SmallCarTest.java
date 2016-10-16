@@ -30,7 +30,7 @@ public class SmallCarTest {
      */
     @Test
     public void drive() {
-
+        fail();
     }
 
     /**
