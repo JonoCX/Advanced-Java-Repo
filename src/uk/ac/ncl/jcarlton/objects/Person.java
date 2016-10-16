@@ -1,5 +1,7 @@
 package uk.ac.ncl.jcarlton.objects;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -70,7 +72,24 @@ public final class Person {
      */
     @Override
     public String toString() {
-        return "[" + "Name='" + firstName + " " + lastName + "', dob=" + dateOfBirth + "]";
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        return firstName + " " + lastName + ":" + format.format(dateOfBirth);
+    }
+
+    /**
+     * @param person
+     * @return
+     */
+    public static Person valueOf(String person) throws ParseException {
+        if (person == null || person.isEmpty())
+            throw new IllegalArgumentException("Cannot parse empty or null string");
+
+        String[] firstSplit = person.split(" ");
+        String[] secondSplit = firstSplit[1].split(":");
+
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = format.parse(secondSplit[1]); // throws ParseException.
+        return new Person(firstSplit[0], secondSplit[0], date);
     }
 
     /**

@@ -2,8 +2,9 @@ package uk.ac.ncl.jcarlton.testing.objects;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 import uk.ac.ncl.jcarlton.objects.Registration;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * <h1>RegistrationTest</h1>
@@ -26,17 +27,16 @@ public class RegistrationTest {
     @Before
     public void setUp()  {
         // get instance is tested every time the code is ran.
-        registration = Registration.getInstance("NG", 57, "HXE");
+        registration = Registration.getInstance("NG57", "HXE");
     }
 
     /**
      * Test that a <code>IllegalArgumentException</code> is
-     * thrown when the length of the first component is
-     * not equal to 2.
+     * thrown when the regex isn't matched.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFirstComponentThrowsLength() {
-        exceptionRegistrationTester = Registration.getInstance("ABC", 10, "HXE");
+        exceptionRegistrationTester = Registration.getInstance("ABC", "HXE");
     }
 
     /**
@@ -46,7 +46,7 @@ public class RegistrationTest {
      */
     @Test(expected = NullPointerException.class)
     public void testFirstComponentThrowsNull() {
-        exceptionRegistrationTester = Registration.getInstance(null, 10, "HXE");
+        exceptionRegistrationTester = Registration.getInstance(null, "HXE");
     }
 
     /**
@@ -56,7 +56,7 @@ public class RegistrationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFirstComponentThrowsIsEmpty() {
-        exceptionRegistrationTester = Registration.getInstance("", 10, "HXE");
+        exceptionRegistrationTester = Registration.getInstance("", "HXE");
     }
 
     /**
@@ -66,7 +66,7 @@ public class RegistrationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFirstComponentThrowsTrimEmpty() {
-        exceptionRegistrationTester = Registration.getInstance("  ", 10, "HXE");
+        exceptionRegistrationTester = Registration.getInstance("  ", "HXE");
     }
 
     /**
@@ -76,7 +76,7 @@ public class RegistrationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSecondComponentThrowsLength() {
-        exceptionRegistrationTester = Registration.getInstance("NG", 100, "HXE");
+        exceptionRegistrationTester = Registration.getInstance("NG57", "HXEL");
     }
 
     /**
@@ -86,7 +86,7 @@ public class RegistrationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testThirdComponentThrowsLength() {
-        exceptionRegistrationTester = Registration.getInstance("NG", 57, "HX");
+        exceptionRegistrationTester = Registration.getInstance("NG57", "HX");
     }
 
     /**
@@ -96,7 +96,7 @@ public class RegistrationTest {
      */
     @Test(expected = NullPointerException.class)
     public void testThirdComponentThrowsNull() {
-        exceptionRegistrationTester = Registration.getInstance("NG", 10, null);
+        exceptionRegistrationTester = Registration.getInstance("NG57", null);
     }
 
     /**
@@ -106,7 +106,7 @@ public class RegistrationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testThirdComponentThrowsIsEmpty() {
-        exceptionRegistrationTester = Registration.getInstance("NG", 10, "");
+        exceptionRegistrationTester = Registration.getInstance("NG57", "");
     }
 
     /**
@@ -116,7 +116,7 @@ public class RegistrationTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testThirdComponentThrowsTrimEmpty() {
-        exceptionRegistrationTester = Registration.getInstance("NG", 10, "  ");
+        exceptionRegistrationTester = Registration.getInstance("NG57", "  ");
     }
 
     /**
@@ -134,7 +134,7 @@ public class RegistrationTest {
      */
     @Test
     public void getFirstComponent() {
-        assertEquals("NG", registration.getFirstComponent());
+        assertEquals("NG57", registration.getFirstComponent());
     }
 
     /**
@@ -142,15 +142,8 @@ public class RegistrationTest {
      */
     @Test
     public void getSecondComponent()  {
-        assertEquals(57, registration.getSecondComponent());
+        assertEquals("HXE", registration.getSecondComponent());
     }
 
-    /**
-     * Test that the third component is being set properly.
-     */
-    @Test
-    public void getThirdComponent() {
-        assertEquals("HXE", registration.getThirdComponent());
-    }
 
 }

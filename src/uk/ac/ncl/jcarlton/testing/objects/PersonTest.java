@@ -97,4 +97,15 @@ public class PersonTest {
         assertEquals(dob2.getTime(), p2.getDateOfBirth());
     }
 
+    /**
+     * Test that the <code>valueOf</code> method correctly
+     * parses a String that is made up of the Person
+     * components.
+     */
+    @Test
+    public void testValueOf() throws Exception {
+        String personString = p1.toString();
+        Person p1New = Person.valueOf(personString);
+        assertEquals(p1, p1New);
+    }
 }

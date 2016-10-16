@@ -10,13 +10,13 @@ public class DrivingLicense {
     // state member variables
     private final String firstComponent;
     private final Date secondComponent;
-    private final int thirdComponent;
+    private final String thirdComponent;
 
     private final boolean fullLicense;
 
     private static final Map<String, DrivingLicense> LICENSE_MAP = new HashMap<>();
 
-    private DrivingLicense(Person person, Date second, int third, boolean fullLicense) {
+    private DrivingLicense(Person person, Date second, String third, boolean fullLicense) {
         // ensure that the Person isn't null
         if (person == null)
             throw new IllegalArgumentException("The Person cannot be a null object");
@@ -57,7 +57,7 @@ public class DrivingLicense {
         return secondComponent;
     }
 
-    public int getThirdComponent() {
+    public String getThirdComponent() {
         return thirdComponent;
     }
 
@@ -72,8 +72,10 @@ public class DrivingLicense {
         return concat.toUpperCase();
     }
 
-    private static int generateSerial() {
+    private static String generateSerial() {
         Random random = new Random();
-        return random.nextInt(100);
+        int first = random.nextInt(10);
+        int second = random.nextInt(10);
+        return String.valueOf(first) + String.valueOf(second);
     }
 }

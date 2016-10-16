@@ -52,6 +52,8 @@ public interface Car {
      * @param fuelAmount the amount of fuel to add to
      *                   the fuel tank.
      * @return           how much fuel was added.
+     * @throws IllegalArgumentException thrown if the parameter is
+     * a negative value.
      */
     int addFuel(int fuelAmount);
 
@@ -64,4 +66,17 @@ public interface Car {
      *                  consumed during the travel.
      */
     int drive(int kmAmount);
+
+    /**
+     * The ability to use a given amount of fuel in the
+     * car. To be used in the implementation of the
+     * <code>drive(int kmAmount)</code> method.
+     *
+     * @param fuelAmount the amount of fuel to
+     *                   consume.
+     * @return the amount that was actually
+     * consumed.
+     * @see #drive(int)
+     */
+    int useFuel(int fuelAmount);
 }
