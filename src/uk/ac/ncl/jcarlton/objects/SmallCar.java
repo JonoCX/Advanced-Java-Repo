@@ -39,5 +39,10 @@ public class SmallCar extends AbstractCar {
         return useFuel(consumption);
     }
 
+    @Override
+    public String toString() {
+        return getRegistration().toString() + " (S)";
+    }
+
 
 }

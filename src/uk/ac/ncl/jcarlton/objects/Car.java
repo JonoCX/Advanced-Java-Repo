@@ -84,4 +84,6 @@ public interface Car {
      *
      */
     void rentCar();
+
+    boolean isRented();
 }

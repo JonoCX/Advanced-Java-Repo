@@ -32,7 +32,7 @@ public class DrivingLicenseTest {
         Calendar calendar = new GregorianCalendar(1993, 8, 27);
         Calendar calendar1 = new GregorianCalendar(2011, 1, 1);
         license = DrivingLicense.getInstance(
-                new Person("Jonathan", "Carlton", calendar.getTime()),
+                new Person("Jonathan", "Carlton", calendar.getTime(), true,  calendar1.getTime()),
                 calendar1.getTime(),
                 true
         );

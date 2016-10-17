@@ -13,10 +13,19 @@ public class DrivingLicense {
     private final String thirdComponent;
 
     private final boolean fullLicense;
+    private final Person owner;
 
     private static final Map<String, DrivingLicense> LICENSE_MAP = new HashMap<>();
 
     private DrivingLicense(Person person, Date second, String third, boolean fullLicense) {
+        this.firstComponent = processName(person);
+        this.secondComponent = second;
+        this.thirdComponent = third;
+        this.fullLicense = fullLicense;
+        this.owner = person;
+    }
+
+    public static DrivingLicense getInstance(Person person, Date second, boolean fullLicense) {
         // ensure that the Person isn't null
         if (person == null)
             throw new IllegalArgumentException("The Person cannot be a null object");
@@ -25,13 +34,6 @@ public class DrivingLicense {
         if (second == null)
             throw new IllegalArgumentException("Date cannot be a null object");
 
-        this.firstComponent = processName(person);
-        this.secondComponent = second;
-        this.thirdComponent = third;
-        this.fullLicense = fullLicense;
-    }
-
-    public static DrivingLicense getInstance(Person person, Date second, boolean fullLicense) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(second);
         final String check = processName(person) + " " + cal.get(Calendar.YEAR);
@@ -46,7 +48,7 @@ public class DrivingLicense {
     public String toString() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(secondComponent);
-        return firstComponent + "-" + calendar.get(Calendar.YEAR) + "-" + thirdComponent;
+        return firstComponent + "-" + calendar.get(Calendar.YEAR) + "-" + thirdComponent + "-" + fullLicense;
     }
 
     public String getFirstComponent() {
@@ -63,6 +65,10 @@ public class DrivingLicense {
 
     public boolean isFullLicense() {
         return fullLicense;
+    }
+
+    public Person getOwner() {
+        return owner;
     }
 
     private static String processName(Person person) {

@@ -34,7 +34,7 @@ public abstract class AbstractCar implements Car {
 
         this.registrationNumber = registration;
         this.tankCapacity = tankCap;
-        this.currentFuelLevel = 0; // assumption that all cars start empty.
+        this.currentFuelLevel = tankCapacity; // all cars start as full
         this.rented = false;
     }
 
@@ -122,8 +122,27 @@ public abstract class AbstractCar implements Car {
         this.rented = true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isRented() {
         return rented;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o instanceof Registration) return false;
+
+        AbstractCar that = (AbstractCar) o;
+
+        return registrationNumber.equals(that.registrationNumber);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return registrationNumber.hashCode();
+    }
 }
