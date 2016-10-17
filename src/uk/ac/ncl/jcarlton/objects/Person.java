@@ -48,34 +48,12 @@ public final class Person {
     }
 
     /**
-     * This method is written based on the presumption
-     * that every person receives their driving license
-     * when they are 17 (the legal driving age in the UK).
-     *  TODO change comments.
      * @return the persons driving license
      */
     private DrivingLicense generateLicense(boolean full, Date licenseIssue) {
-        // calculate if they are 17 or above.
-//        int yearsSinceIssue = getAge() - 17;
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.add(Calendar.YEAR, yearsSinceIssue);
-//        Date issued = calendar.getTime();
         return DrivingLicense.getInstance(this, licenseIssue, full);
-
     }
 
-    // todo may not need this
-    private int getAge() {
-        LocalDate now = LocalDate.now();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateOfBirth);
-        LocalDate date = LocalDate.of(
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH) + 1,
-                calendar.get(Calendar.DAY_OF_MONTH)
-        );
-        return Period.between(date, now).getYears();
-    }
 
     /**
      * @see java.lang.Object#equals(Object)
@@ -109,7 +87,9 @@ public final class Person {
     @Override
     public String toString() {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        return firstName + " " + lastName + ":" + format.format(dateOfBirth) + ":" + license.toString();
+        return firstName + " " + lastName +
+                ":" + format.format(dateOfBirth) +
+                ":" + license.toString();
     }
 
     /**

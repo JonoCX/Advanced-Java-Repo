@@ -15,16 +15,17 @@ package uk.ac.ncl.jcarlton.objects;
 public abstract class AbstractCar implements Car {
 
     // state member variables
-    private final Registration registrationNumber;
+    private final Registration registrationNumber; // unique to the car
     private final int tankCapacity;
     private int currentFuelLevel;
 
     private boolean rented;
 
     /**
-     *
-     * @param registration
-     * @param tankCap
+     * Package-private object constructor, used by the
+     * classes which extend this class.
+     * @param registration  the registration plate of the car.
+     * @param tankCap       the fuel capacity of the car.
      */
     AbstractCar(Registration registration, int tankCap) {
         if (registration == null)

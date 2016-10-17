@@ -3,7 +3,7 @@ package uk.ac.ncl.jcarlton.objects;
 /**
  * @author Jonathan Carlton
  */
-public class LargeCar extends AbstractCar {
+public final class LargeCar extends AbstractCar {
 
     // consumption rates of the Large Car.
     private final static int CONSUMPTION_RATE_1 = 10;
