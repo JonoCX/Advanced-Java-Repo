@@ -1,14 +1,29 @@
 package uk.ac.ncl.jcarlton.objects;
 
 /**
+ * <h1>AbstractCar</h1>
+ *
+ * Partial implementation of the {@code Car} interface.
+ * All of the common behaviour, shared between cars, has
+ * been implemented here.
+ *
+ * To add further specialist functionality, extend this
+ * class.
+ *
  * @author Jonathan Carlton
  */
 public abstract class AbstractCar implements Car {
 
+    // state member variables
     private final Registration registrationNumber;
     private final int tankCapacity;
     private int currentFuelLevel;
 
+    /**
+     *
+     * @param registration
+     * @param tankCap
+     */
     AbstractCar(Registration registration, int tankCap) {
         if (registration == null)
             throw new IllegalArgumentException("Registration cannot be null.");
