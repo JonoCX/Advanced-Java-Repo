@@ -38,17 +38,19 @@ public final class Registration {
      * if they don't meet the regex patterns.
      */
     private Registration(String first, String second) {
+        // regex to ensure that the first component matches the two letters two digits pattern.
         if (!(first.matches("[a-zA-Z]{2}[0-9]{2}")))
             throw new IllegalArgumentException("The first component has to be 2 letters followed by 2 digits.");
         if (first == null || first.isEmpty() || first.trim().isEmpty())
             throw new IllegalArgumentException("First component cannot be null or an empty string");
 
+        // regex to ensure that the second component is three letters.
         if (!(second.matches("[a-zA-Z]{3}")))
             throw new IllegalArgumentException("The second component can only contain 3 letters");
         if (second == null || second.isEmpty() || second.trim().isEmpty())
             throw new IllegalArgumentException("Third component cannot be null or an empty string");
 
-        // trim (to remove trailing whitespace) the strings and make upperCase.
+        // trim (to remove leading/trailing whitespace) the strings and make upperCase.
         this.firstComponent = first.trim().toUpperCase();
         this.secondComponent = second.trim().toUpperCase();
     }

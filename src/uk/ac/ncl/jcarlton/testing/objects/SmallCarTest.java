@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
  */
 public class SmallCarTest {
 
+    // test objects.
     private Car car;
     private Registration registration;
 
@@ -29,8 +30,36 @@ public class SmallCarTest {
      *
      */
     @Test
-    public void drive() {
-        fail();
+    public void driveValid() {
+        car.addFuel(10);
+        car.rentCar();
+        assertEquals(2, car.drive(40));
+        //assertEquals(8, car.getFuelAmount());
+    }
+
+    /**
+     *
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void drivePassNegativeKM() {
+        car.drive(-1);
+    }
+
+    /**
+     *
+     */
+    @Test(expected = IllegalStateException.class)
+    public void driveWithoutFuel() {
+        car.drive(10);
+    }
+
+    /**
+     *
+     */
+    @Test(expected = IllegalStateException.class)
+    public void driveWhenNotRented() {
+        car.addFuel(10);
+        car.drive(10);
     }
 
     /**

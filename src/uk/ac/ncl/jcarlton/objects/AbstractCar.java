@@ -19,6 +19,8 @@ public abstract class AbstractCar implements Car {
     private final int tankCapacity;
     private int currentFuelLevel;
 
+    private boolean rented;
+
     /**
      *
      * @param registration
@@ -33,6 +35,7 @@ public abstract class AbstractCar implements Car {
         this.registrationNumber = registration;
         this.tankCapacity = tankCap;
         this.currentFuelLevel = 0; // assumption that all cars start empty.
+        this.rented = false;
     }
 
     /**
@@ -106,8 +109,21 @@ public abstract class AbstractCar implements Car {
             return previousFuelLevel;
         }
 
-        currentFuelLevel -= fuelAmount;
-        return getFuelAmount();
-
+        int previous = currentFuelLevel;
+        currentFuelLevel = currentFuelLevel - fuelAmount;
+        return previous - currentFuelLevel;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void rentCar() {
+        this.rented = true;
+    }
+
+    public boolean isRented() {
+        return rented;
+    }
+
 }

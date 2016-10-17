@@ -79,4 +79,9 @@ public interface Car {
      * @see #drive(int)
      */
     int useFuel(int fuelAmount);
+
+    /**
+     *
+     */
+    void rentCar();
 }
