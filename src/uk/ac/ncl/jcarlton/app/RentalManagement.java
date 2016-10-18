@@ -9,17 +9,23 @@ import java.util.*;
 
 /**
  * @author Jonathan Carlton
- *         17/10/2016
  */
 public final class RentalManagement {
 
+    // all the cars that the company has and if they are rented.
     private Map<Car, Person> rentedCars;
 
+    /**
+     *
+     */
     public RentalManagement() {
         rentedCars = populateMap();
     }
 
-
+    /**
+     * @param type
+     * @return
+     */
     public int availableCars(Class<?> type) {
         int count = 0;
         if (type == LargeCar.class) { // if its a large car
@@ -40,6 +46,12 @@ public final class RentalManagement {
 
     }
 
+    /**
+     * Get a collection containing all the Car's that are
+     * currently rented.
+     *
+     * @return {@code List<Car>} of all rented Car's
+     */
     public List<Car> getRentedCars() {
         List<Car> rented = new ArrayList<>();
         for (Car car : rentedCars.keySet()) {
@@ -49,6 +61,16 @@ public final class RentalManagement {
         return rented;
     }
 
+    /**
+     * Given a {@code Person} fetch the car that they
+     * have rented from the rental company.
+     *
+     * Note: Can return {@code null} if the {@code Car}
+     * doesn't exist.
+     *
+     * @param person    the {@code Person} who has rented a car.
+     * @return the {@code Car} which they have rented.
+     */
     public Car getCar(Person person) {
         if (person == null)
             throw new IllegalArgumentException("Cannot be a null Person.");
@@ -66,18 +88,18 @@ public final class RentalManagement {
     }
 
     /**
-     * The functionality to issue a car to a Person, given their
-     * driving license and the car in which you would like to
+     * The functionality to issue a {@code Car} to a {@code Person}, given their
+     * driving license and the {@code Car} in which you would like to
      * rent to them.
      * <p>
-     * This will return false (the car isn't able to be issued) in
+     * This will return false (the {@code Car} isn't able to be issued) in
      * a number of cases:
-     * <ul><li>the license doesn't belong to the person being passed</li>
-     * <li>the person is already renting a car</li>
-     * <li>the person doesn't hold a full driving license</li>
-     * <li>the tank (of the car that is to be rented) isn't full</li>
-     * <li>if they aren't older enough to rent the car (Large = 25+ and Small = 20+)</li>
-     * <li>the person hasn't held their license for long enough (Large = 5 years+
+     * <ul><li>the license doesn't belong to the {@code Person} being passed</li>
+     * <li>the {@code Person} is already renting a {@code Car}</li>
+     * <li>the {@code Person} doesn't hold a full driving license</li>
+     * <li>the tank (of the {@code Car} that is to be rented) isn't full</li>
+     * <li>if they aren't older enough to rent the {@code Car} (Large = 25+ and Small = 20+)</li>
+     * <li>the {@code Person} hasn't held their license for long enough (Large = 5 years+
      * and Small = 2 years+)</li></ul>
      * </p>
      * <p>

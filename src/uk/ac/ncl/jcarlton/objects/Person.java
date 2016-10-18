@@ -2,14 +2,11 @@ package uk.ac.ncl.jcarlton.objects;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
  * <h1>Person</h1>
- * <p>
+ *
  * Represents an immutable person.
  *
  * @author Jonathan Carlton
@@ -48,6 +45,9 @@ public final class Person {
     }
 
     /**
+     * Generate the persons driving license based on the
+     * parameters passed to the object constructor.
+     *
      * @return the persons driving license
      */
     private DrivingLicense generateLicense(boolean full, Date licenseIssue) {
@@ -93,10 +93,17 @@ public final class Person {
     }
 
     /**
-     * @param person
-     * @return
+     * Give a {@code String} create a {@code Person}.
+     *
+     * @see #toString()
+     *
+     * @param person    the {@code String} representation of the {@code Person}.
+     * @return a {@code Person} object.
+     * @throws ParseException   thrown when the date of birth cannot
+     * be parsed by {@code SimpleDateFormat}.
      */
     public static Person valueOf(String person) throws ParseException {
+        // cannot parse an empty or null string.
         if (person == null || person.isEmpty())
             throw new IllegalArgumentException("Cannot parse empty or null string");
 
@@ -112,11 +119,11 @@ public final class Person {
         format = new SimpleDateFormat("yyyy");
         DrivingLicense license = DrivingLicense.getInstance(
                 new Person(
-                        firstSplit[0],
-                        secondSplit[0],
-                        date,
-                        Boolean.valueOf(thirdSplit[3]),
-                        format.parse(thirdSplit[1])
+                        firstSplit[0], // first name
+                        secondSplit[0], // last name
+                        date, // date of birth
+                        Boolean.valueOf(thirdSplit[3]), // full license or not
+                        format.parse(thirdSplit[1]) // license issue
                 ),
                 format.parse(thirdSplit[1]),
                 Boolean.valueOf(thirdSplit[3]));

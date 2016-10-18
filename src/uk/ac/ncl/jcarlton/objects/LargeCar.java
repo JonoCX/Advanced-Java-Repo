@@ -60,10 +60,12 @@ public final class LargeCar extends AbstractCar {
             int remainingKms = (kmAmount - 50) / CONSUMPTION_RATE_2;
 
             /*
-                int division rounds down
+                int division rounds down.
                 if the kmAmount - 50 = 10
                 and then you do 10 / 15 (consumption rate) the
-                actual answer is 0.6
+                actual answer is 0.6 but int's in Java automatically
+                round down, so the answer here will be 0 but they must
+                have used some fuel so set it to 1.
              */
             if (remainingKms == 0)
                 remainingKms = 1;

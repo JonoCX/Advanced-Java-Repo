@@ -6,7 +6,7 @@ import uk.ac.ncl.jcarlton.objects.Car;
 import uk.ac.ncl.jcarlton.objects.LargeCar;
 import uk.ac.ncl.jcarlton.objects.Registration;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * <h1>JUnit Test Case for Large Car</h1>
@@ -21,9 +21,14 @@ import static org.junit.Assert.*;
  */
 public class LargeCarTest {
 
+    // test objects.
     private Car car;
     private Registration registration;
 
+    /**
+     * Setup method to initialise the test objects within
+     * the class.
+     */
     @Before
     public void setUp() {
         registration = Registration.getInstance("TP00", "QQJ");
@@ -39,14 +44,22 @@ public class LargeCarTest {
      */
     @Test
     public void driveValidUnder50km()  {
-        car.addFuel(10);
         car.setRented(true);
         assertEquals(2, car.drive(20));
     }
 
+    /**
+     * Test that when driving over 50km, the correct
+     * amount of fuel is used and the required amount
+     * to re-fill the car is returned.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.LargeCar#drive(int)
+     */
     @Test
     public void driveValidOver50km() {
+        car.setRented(true);
 
+        assertEquals(6, car.drive(60));
     }
 
     /**

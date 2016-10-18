@@ -10,6 +10,8 @@ package uk.ac.ncl.jcarlton.objects;
  * To add further specialist functionality, extend this
  * class.
  *
+ * @see uk.ac.ncl.jcarlton.objects.Car
+ *
  * @author Jonathan Carlton
  */
 public abstract class AbstractCar implements Car {
@@ -76,6 +78,7 @@ public abstract class AbstractCar implements Car {
      */
     @Override
     public int addFuel(int fuelAmount) {
+        // cannot add a negative amount of fuel to the car.
         if (fuelAmount < 0)
             throw new IllegalArgumentException("Cannot add a negative amount of fuel: " + fuelAmount);
 
@@ -83,14 +86,22 @@ public abstract class AbstractCar implements Car {
         if (isTankFull())
             return 0;
 
+        // check if there is an overspill (adding more than capacity)
         int overSpillCheck = currentFuelLevel + fuelAmount;
         if (overSpillCheck > tankCapacity) {
             int overspill = overSpillCheck - tankCapacity;
+
+            // remove the extra amount
             int amountAdd = fuelAmount - overspill;
+
+            // essentially fill the tank to its capacity.
             currentFuelLevel += amountAdd;
+
+            // return the actual amount added.
             return amountAdd;
         }
 
+        // else there is no overspill, increment the fuel level
         currentFuelLevel += fuelAmount;
         return fuelAmount;
     }
@@ -100,18 +111,30 @@ public abstract class AbstractCar implements Car {
      */
     @Override
     public int useFuel(int fuelAmount) {
+        // cannot use a negative amount of fuel
         if (fuelAmount < 0)
             throw new IllegalArgumentException("Cannot use a negative amount of fuel: " + fuelAmount);
 
+        // check if there has been an over-usage (using more than the capacity)
         int overUsed = currentFuelLevel - fuelAmount;
         if (overUsed < 0) {
+            // record the previous level of fuel - before reduction
             int previousFuelLevel = currentFuelLevel;
+
+            // set to zero
             currentFuelLevel = 0;
+
+            // need to fill the tank up from empty.
             return previousFuelLevel;
         }
 
+        // record previous level of fuel
         int previous = currentFuelLevel;
+
+        // reduce the current fuel level by the amount used
         currentFuelLevel = currentFuelLevel - fuelAmount;
+
+        // previous sub current gives the amount used.
         return previous - currentFuelLevel;
     }
 
@@ -120,7 +143,8 @@ public abstract class AbstractCar implements Car {
      */
     @Override
     public void setRented(boolean rent) {
-        this.rented = rent;
+        if (isTankFull())
+            this.rented = rent;
     }
 
     /**

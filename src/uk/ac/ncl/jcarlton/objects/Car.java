@@ -81,10 +81,16 @@ public interface Car {
     int useFuel(int fuelAmount);
 
     /**
+     * The ability to rent the car.
      *
-     * @param rent
+     * @param rent true or false
      */
     void setRented(boolean rent);
 
+    /**
+     * Check if the car is currently rented.
+     *
+     * @return true, if rented, else false.
+     */
     boolean isRented();
 }
