@@ -82,8 +82,9 @@ public interface Car {
 
     /**
      *
+     * @param rent
      */
-    void rentCar();
+    void setRented(boolean rent);
 
     boolean isRented();
 }

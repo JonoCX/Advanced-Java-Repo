@@ -117,10 +117,11 @@ public abstract class AbstractCar implements Car {
 
     /**
      * {@inheritDoc}
+     * @param rent
      */
     @Override
-    public void rentCar() {
-        this.rented = true;
+    public void setRented(boolean rent) {
+        this.rented = rent;
     }
 
     /**

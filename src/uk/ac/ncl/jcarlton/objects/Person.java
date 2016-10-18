@@ -152,6 +152,11 @@ public final class Person {
         return (Date) dateOfBirth.clone();
     }
 
+    /**
+     * Get the driving license of the Person.
+     *
+     * @return  The driving license.
+     */
     public DrivingLicense getLicense() {
         return license;
     }

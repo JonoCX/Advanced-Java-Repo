@@ -32,7 +32,7 @@ public class SmallCarTest {
     @Test
     public void driveValid() {
         car.addFuel(10);
-        car.rentCar();
+        car.setRented(true);
         assertEquals(2, car.drive(40));
         //assertEquals(8, car.getFuelAmount());
     }

@@ -60,5 +60,10 @@ public final class LargeCar extends AbstractCar {
         return useFuel(consumption);
     }
 
+    @Override
+    public String toString() {
+        return getRegistration().toString() + " (L)";
+    }
+
 
 }

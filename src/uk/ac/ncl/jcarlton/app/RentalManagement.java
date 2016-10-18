@@ -19,22 +19,6 @@ public final class RentalManagement {
         rentedCars = populateMap();
     }
 
-    private Map<Car, Person> populateMap() {
-        Map<Car, Person> map = new HashMap<>();
-        List<Registration> registrations = RegistrationGenerator.generate();
-
-        // generate large cars
-        for (int i = 0; i < 10; i++) {
-            map.put(new LargeCar(registrations.get(i)), null);
-        }
-
-        // generate small cars
-        for (int i = 10; i < 30; i++) {
-            map.put(new SmallCar(registrations.get(i)), null);
-        }
-
-        return map;
-    }
 
     public int availableCars(Class<?> type) {
         int count = 0;
@@ -83,6 +67,9 @@ public final class RentalManagement {
 
     /**
      *
+     * Note: There is an assumption that the person using this method
+     * will input Cars that do exist in the rental system.
+     *
      * @param person
      * @param license
      * @param car
@@ -101,6 +88,7 @@ public final class RentalManagement {
             throw new IllegalArgumentException("License cannot be null.");
         if (car == null)
             throw new IllegalArgumentException("Car cannot be null.");
+
 
         // the licence belongs to this person.
         if (!(license.getOwner().equals(person)))
@@ -138,7 +126,15 @@ public final class RentalManagement {
                         calendar.get(Calendar.DAY_OF_MONTH)
                 );
                 if ((1 <= Period.between(heldDate, now).getYears())) {
-                    rentedCars.put(car, person);
+                    Car issuedCar = null;
+                    for (Car c : rentedCars.keySet()) {
+                        if (c instanceof SmallCar && !c.isRented() && c.getRegistration().equals(car.getRegistration())) {
+                            issuedCar = c;
+                            break;
+                        }
+                    }
+                    issuedCar.setRented(true);
+                    rentedCars.put(issuedCar, person);
                     return true;
                 }
             }
@@ -153,7 +149,15 @@ public final class RentalManagement {
                        calendar.get(Calendar.DAY_OF_MONTH)
                );
                if ((5 <= Period.between(heldDate, now).getYears())) {
-                   rentedCars.put(car, person);
+                   Car issuedCar = null;
+                   for (Car c : rentedCars.keySet()) {
+                       if (c instanceof SmallCar && !c.isRented() && c.getRegistration().equals(car.getRegistration())) {
+                           issuedCar = c;
+                           break;
+                       }
+                   }
+                   rentedCars.put(issuedCar, person);
+                   car.setRented(true);
                    return true;
                }
            }
@@ -181,10 +185,29 @@ public final class RentalManagement {
             Map.Entry<Car, Person> mapEntry = iterator.next();
             if (person.equals(mapEntry.getValue())) {
                 iterator.remove();
+                mapEntry.getKey().setRented(false);
                 return (mapEntry.getKey().getFuelCapacity() - mapEntry.getKey().getFuelAmount());
             }
         }
         return -1;
+    }
+
+    private Map<Car, Person> populateMap() {
+        Map<Car, Person> map = new HashMap<>();
+        List<Registration> registrations = RegistrationGenerator.registrations();
+
+        // generate large cars
+        for (int i = 0; i < 10; i++) {
+            map.put(new LargeCar(registrations.get(i)), null);
+        }
+
+        // generate small cars
+        for (int i = 10; i < 30; i++) {
+            map.put(new SmallCar(registrations.get(i)), null);
+        }
+
+
+        return map;
     }
 
 }
