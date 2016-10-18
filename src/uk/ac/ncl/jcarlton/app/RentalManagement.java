@@ -8,6 +8,12 @@ import java.time.Period;
 import java.util.*;
 
 /**
+ * <h1>Car Rental Management</h1>
+ *
+ * This is the class that the Car Rental Company will
+ * use to manage their car rentals - essentially the
+ * front-end to the entire project.
+ *
  * @author Jonathan Carlton
  */
 public final class RentalManagement {
@@ -16,15 +22,21 @@ public final class RentalManagement {
     private Map<Car, Person> rentedCars;
 
     /**
-     *
+     *  Object constructor.
      */
     public RentalManagement() {
         rentedCars = populateMap();
     }
 
     /**
-     * @param type
-     * @return
+     * Given the class type, count how many cars are
+     * available to be rented.
+     *
+     * @param type  either {@code SmallCar} or {@code LargeCar}, if
+     *              a class of another type is passed then the method
+     *              will just return -1.
+     * @return the count of either {@code SmallCar} or {@code LargeCar} or
+     *              -1 if the class type is anything else.
      */
     public int availableCars(Class<?> type) {
         int count = 0;
@@ -94,12 +106,12 @@ public final class RentalManagement {
      * <p>
      * This will return false (the {@code Car} isn't able to be issued) in
      * a number of cases:
-     * <ul><li>the license doesn't belong to the {@code Person} being passed</li>
-     * <li>the {@code Person} is already renting a {@code Car}</li>
-     * <li>the {@code Person} doesn't hold a full driving license</li>
-     * <li>the tank (of the {@code Car} that is to be rented) isn't full</li>
-     * <li>if they aren't older enough to rent the {@code Car} (Large = 25+ and Small = 20+)</li>
-     * <li>the {@code Person} hasn't held their license for long enough (Large = 5 years+
+     * <ul><li>The license doesn't belong to the {@code Person} being passed</li>
+     * <li>The {@code Person} is already renting a {@code Car}</li>
+     * <li>The {@code Person} doesn't hold a full driving license</li>
+     * <li>The tank (of the {@code Car} that is to be rented) isn't full</li>
+     * <li>If they aren't older enough to rent the {@code Car} (Large = 25+ and Small = 20+)</li>
+     * <li>The {@code Person} hasn't held their license for long enough (Large = 5 years+
      * and Small = 2 years+)</li></ul>
      * </p>
      * <p>
@@ -279,7 +291,6 @@ public final class RentalManagement {
         for (int i = 10; i < 30; i++) {
             map.put(new SmallCar(registrations.get(i)), null);
         }
-
 
         return map;
     }

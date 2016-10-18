@@ -25,14 +25,14 @@ public final class Registration {
     /**
      * Private object constructor.
      *
-     * Create a registration from two components, the first being
+     * Create a {@code Registration} from two components, the first being
      * a String that is 2 letters followed by 2 digits and the
-     * second being another String that is 3 letters.
+     * second being another {@code String} that is 3 letters.
      *
      * "NG57 HXE".
      *
-     * @param first     first component of the registration (String).
-     * @param second     second component of the registration (String).
+     * @param first     first component of the registration.
+     * @param second     second component of the registration.
      * @throws IllegalArgumentException     thrown when the lengths of the
      * variables are incorrect or, if they are null or, if they are empty, or
      * if they don't meet the regex patterns.
@@ -56,11 +56,11 @@ public final class Registration {
     }
 
     /**
-     * Static factory method to either create a new registration or
-     * fetch a previously created registration.
+     * Static factory method to either create a new {@code Registration} or
+     * fetch a previously created one.
      *
-     * @param first     the first component of the registration.
-     * @param second    the second component of the registration.
+     * @param first     the first component of the {@code Registration}.
+     * @param second    the second component of the {@code Registration}.
      * @return          a registration object, either new or one
      *                  that was previously created.
      * @throws IllegalArgumentException thrown when the object is being created.
@@ -84,6 +84,7 @@ public final class Registration {
     public String toString() {
         return firstComponent + " " + secondComponent;
     }
+
 
     /**
      * Get the first component of the Registration object.

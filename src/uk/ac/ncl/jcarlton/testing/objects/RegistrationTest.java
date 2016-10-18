@@ -31,7 +31,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown when the regex isn't matched.
      */
     @Test(expected = IllegalArgumentException.class)
@@ -40,7 +40,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>NullPointerException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown when the a null instance is passed for the
      * first component.
      */
@@ -50,7 +50,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown if an empty string is passed for the first
      * component.
      */
@@ -60,7 +60,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown if, even after trimming, the string is
      * still empty.
      */
@@ -70,7 +70,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown when the length of the second component is
      * not equal to 2.
      */
@@ -80,7 +80,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown when the length of the third component is
      * not equal to 3.
      */
@@ -90,7 +90,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>NullPointerException</code> is
+     * Test that a {@code NullPointerException} is
      * thrown when the a null instance is passed for the
      * third component.
      */
@@ -100,7 +100,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown if an empty string is passed for the third
      * component.
      */
@@ -110,7 +110,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is
+     * Test that a {@code IllegalArgumentException} is
      * thrown if, even after trimming, the string is
      * still empty.
      */
@@ -120,7 +120,7 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that the <code>toString</code> representation
+     * Test that the {@code toString()} representation
      * is correct.
      * @see java.lang.Object#toString()
      */

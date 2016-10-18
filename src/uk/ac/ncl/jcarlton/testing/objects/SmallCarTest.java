@@ -26,7 +26,7 @@ public class SmallCarTest {
     private Registration registration;
 
     /**
-     *
+     *  Setup the class test objects
      */
     @Before
     public void setUp() {
@@ -35,18 +35,21 @@ public class SmallCarTest {
     }
 
     /**
-     *
+     *  Test that you're able to drive a valid distance in the
+     *  {@code Car} and that the correct amount of fuel (to fill up) is
+     *  returned.
      */
     @Test
     public void driveValid() {
         car.addFuel(10);
         car.setRented(true);
         assertEquals(2, car.drive(40));
-        //assertEquals(8, car.getFuelAmount());
     }
 
     /**
-     *
+     *  Test that a {@code IllegalArgumentException} is
+     *  thrown when attempting to drive a negative amount
+     *  of km's.
      */
     @Test(expected = IllegalArgumentException.class)
     public void drivePassNegativeKM() {
@@ -54,15 +57,20 @@ public class SmallCarTest {
     }
 
     /**
-     *
+     *  Test that a {@code IllegalArgumentException} is
+     *  thrown when attempting to drive the {@code Car} without
+     *  fuel.
      */
     @Test(expected = IllegalStateException.class)
     public void driveWithoutFuel() {
+        car.useFuel(49);
         car.drive(10);
     }
 
     /**
-     *
+     *  Test that a {@code IllegalArgumentException} is
+     *  thrown when attempting to drive a {@code Car} when
+     *  it hasn't been rented.
      */
     @Test(expected = IllegalStateException.class)
     public void driveWhenNotRented() {
@@ -71,7 +79,7 @@ public class SmallCarTest {
     }
 
     /**
-     *
+     *  Test that the {@code Registration} is being set properly.
      */
     @Test
     public void getRegistration() {
@@ -79,7 +87,7 @@ public class SmallCarTest {
     }
 
     /**
-     *
+     *  Test that a {@code SmallCar} has a capacity of 49
      */
     @Test
     public void getFuelCapacity() {
@@ -87,43 +95,59 @@ public class SmallCarTest {
     }
 
     /**
-     *
+     *  Test that a {@code Car} starts with a full tank.
      */
     @Test
     public void getFuelAmount() {
-        assertEquals(0, car.getFuelAmount());
+        assertEquals(49, car.getFuelAmount());
     }
 
     /**
-     *
+     *  Test that a {@code Car} has a full tank.
      */
     @Test
     public void isTankFull() {
-        assertFalse(car.isTankFull());
+        assertTrue(car.isTankFull());
     }
 
     /**
-     *
+     *  Test that fuel is able to be added to the tank.
      */
     @Test
-    public void addFuelFillTank() {
+    public void addFuelToTank() {
+        car.useFuel(49);
+        assertFalse(car.isTankFull());
         car.addFuel(49);
         assertTrue(car.isTankFull());
     }
 
+    /**
+     * Test that a {@code IllegalArgumentException} is thrown
+     * when attempting to add a negative amount of fuel to the
+     * {@code Car}
+     */
     @Test(expected = IllegalArgumentException.class)
     public void addNegativeAmountOfFuel() {
         car.addFuel(-1);
     }
 
+    /**
+     * Test that when attempting to add fuel to an already
+     * full tank, it returns 0.
+     */
     @Test
     public void addToAlreadyFullTank() {
-        car.addFuel(49);
         assertEquals(0, car.addFuel(10));
     }
 
+    /**
+     * Test that when attempting to add more than the tank
+     * capacity, the overspill is disregarded and the tank
+     * is just filled to capacity.
+     */
     @Test
     public void attemptToOverFillTank() {
+        car.useFuel(49);
         // add 40lt's
         car.addFuel(40);
 
@@ -135,36 +159,47 @@ public class SmallCarTest {
         assertEquals(49, car.getFuelAmount());
     }
 
+    /**
+     * Test that adding a valid amount to the tank
+     * is done correctly.
+     */
     @Test
     public void addAValidAmountToTank() {
+        car.useFuel(40);
         car.addFuel(25);
-        assertEquals(25, car.getFuelAmount());
+        assertEquals(34, car.getFuelAmount());
     }
 
     /**
-     *
+     *  Test that when attempting to use a negative amount
+     *  of fuel a {@code IllegalArgumentException} is thrown.
      */
     @Test(expected = IllegalArgumentException.class)
     public void useFuelNegativeAmount() {
         car.useFuel(-1);
     }
 
+    /**
+     * Test that when attempting to use more fuel than is
+     * available in the tank, that it just returns
+     * the capacity amount and the tank is set to be empty.
+     */
     @Test
     public void overUseFuel() {
-        car.addFuel(40);
-
         // used all the fuel in the tank.
-        assertEquals(40, car.useFuel(45));
+        assertEquals(49, car.useFuel(50));
 
         // tank should be empty.
         assertEquals(0, car.getFuelAmount());
     }
 
+    /**
+     * Test that using a valid amount of fuel is correct.
+     */
     @Test
     public void useAValidAmountOfFuel() {
-        car.addFuel(40);
         assertEquals(20, car.useFuel(20));
-        assertEquals(20, car.getFuelAmount());
+        assertEquals(29, car.getFuelAmount());
     }
 
 }
