@@ -22,7 +22,7 @@ public class SmallCarTest {
      */
     @Before
     public void setUp() {
-        registration = Registration.getInstance("NG57", "HXE");
+        registration = Registration.getInstance("SE61", "RLU");
         car = new SmallCar(registration);
     }
 

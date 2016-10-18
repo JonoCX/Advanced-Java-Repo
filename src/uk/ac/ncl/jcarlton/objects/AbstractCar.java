@@ -117,7 +117,6 @@ public abstract class AbstractCar implements Car {
 
     /**
      * {@inheritDoc}
-     * @param rent
      */
     @Override
     public void setRented(boolean rent) {
@@ -132,6 +131,11 @@ public abstract class AbstractCar implements Car {
         return rented;
     }
 
+    /**
+     * The equality of a {@code Car} is based on whether
+     * or their registrations are the same.
+     * @see java.lang.Object#equals(Object)
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,6 +147,9 @@ public abstract class AbstractCar implements Car {
 
     }
 
+    /**
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         return registrationNumber.hashCode();

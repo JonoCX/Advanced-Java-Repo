@@ -60,7 +60,7 @@ public final class Registration {
      * fetch a previously created registration.
      *
      * @param first     the first component of the registration.
-     * @param second     the second component of the registration.
+     * @param second    the second component of the registration.
      * @return          a registration object, either new or one
      *                  that was previously created.
      * @throws IllegalArgumentException thrown when the object is being created.

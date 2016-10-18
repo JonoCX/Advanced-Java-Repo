@@ -1,6 +1,14 @@
 package uk.ac.ncl.jcarlton.objects;
 
 /**
+ * <h1>LargeCar</h1>
+ *
+ * This class encapsulates the behaviour of a Large car.
+ * Most of the behaviour is inherit, from the {@code Car}
+ *
+ * @see uk.ac.ncl.jcarlton.objects.Car
+ * @see uk.ac.ncl.jcarlton.objects.AbstractCar
+ *
  * @author Jonathan Carlton
  */
 public final class LargeCar extends AbstractCar {
@@ -51,6 +59,15 @@ public final class LargeCar extends AbstractCar {
             // calculate the consumption rate for the remaining kms
             int remainingKms = (kmAmount - 50) / CONSUMPTION_RATE_2;
 
+            /*
+                int division rounds down
+                if the kmAmount - 50 = 10
+                and then you do 10 / 15 (consumption rate) the
+                actual answer is 0.6
+             */
+            if (remainingKms == 0)
+                remainingKms = 1;
+
             // use the fuel
             return useFuel(firstFifty + remainingKms);
         }
@@ -60,6 +77,9 @@ public final class LargeCar extends AbstractCar {
         return useFuel(consumption);
     }
 
+    /**
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return getRegistration().toString() + " (L)";
