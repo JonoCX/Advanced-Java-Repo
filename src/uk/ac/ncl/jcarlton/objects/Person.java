@@ -35,7 +35,9 @@ public final class Person {
         if (lastName == null || lastName.trim().isEmpty())
             throw new IllegalArgumentException("Last name cannot be null or an empty string.");
         if (dateOfBirth == null)
-            throw new IllegalArgumentException("Date of Birth cannot be null");
+            throw new IllegalArgumentException("Date of Birth cannot be null.");
+        if (licenseIssue == null)
+            throw new IllegalArgumentException("The license issue date cannot be null.");
 
         // trim the parameters to remove whitespace
         this.firstName = firstName.trim();
@@ -56,6 +58,9 @@ public final class Person {
 
 
     /**
+     * A Person is determined to be equal when they
+     * have the same first and last name, and their
+     * date of birth is the same.
      * @see java.lang.Object#equals(Object)
      */
     @Override

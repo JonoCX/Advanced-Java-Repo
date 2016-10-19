@@ -33,6 +33,7 @@ public class RegistrationTest {
     /**
      * Test that a {@code IllegalArgumentException} is
      * thrown when the regex isn't matched.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFirstComponentThrowsLength() {
@@ -40,9 +41,10 @@ public class RegistrationTest {
     }
 
     /**
-     * Test that a {@code IllegalArgumentException} is
+     * Test that a {@code NullPointerException} is
      * thrown when the a null instance is passed for the
      * first component.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = NullPointerException.class)
     public void testFirstComponentThrowsNull() {
@@ -53,6 +55,7 @@ public class RegistrationTest {
      * Test that a {@code IllegalArgumentException} is
      * thrown if an empty string is passed for the first
      * component.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFirstComponentThrowsIsEmpty() {
@@ -63,6 +66,7 @@ public class RegistrationTest {
      * Test that a {@code IllegalArgumentException} is
      * thrown if, even after trimming, the string is
      * still empty.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testFirstComponentThrowsTrimEmpty() {
@@ -73,6 +77,7 @@ public class RegistrationTest {
      * Test that a {@code IllegalArgumentException} is
      * thrown when the length of the second component is
      * not equal to 2.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSecondComponentThrowsLength() {
@@ -83,6 +88,7 @@ public class RegistrationTest {
      * Test that a {@code IllegalArgumentException} is
      * thrown when the length of the third component is
      * not equal to 3.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testThirdComponentThrowsLength() {
@@ -93,6 +99,7 @@ public class RegistrationTest {
      * Test that a {@code NullPointerException} is
      * thrown when the a null instance is passed for the
      * third component.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = NullPointerException.class)
     public void testThirdComponentThrowsNull() {
@@ -103,6 +110,7 @@ public class RegistrationTest {
      * Test that a {@code IllegalArgumentException} is
      * thrown if an empty string is passed for the third
      * component.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testThirdComponentThrowsIsEmpty() {
@@ -113,6 +121,7 @@ public class RegistrationTest {
      * Test that a {@code IllegalArgumentException} is
      * thrown if, even after trimming, the string is
      * still empty.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getInstance(String, String)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testThirdComponentThrowsTrimEmpty() {
@@ -122,6 +131,7 @@ public class RegistrationTest {
     /**
      * Test that the {@code toString()} representation
      * is correct.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#toString()
      * @see java.lang.Object#toString()
      */
     @Test
@@ -131,6 +141,7 @@ public class RegistrationTest {
 
     /**
      * Test that the first component is being set properly.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getFirstComponent()
      */
     @Test
     public void getFirstComponent() {
@@ -139,6 +150,7 @@ public class RegistrationTest {
 
     /**
      * Test that the second component is being set properly.
+     * @see uk.ac.ncl.jcarlton.objects.Registration#getSecondComponent()
      */
     @Test
     public void getSecondComponent()  {

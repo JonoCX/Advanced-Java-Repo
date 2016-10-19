@@ -4,14 +4,25 @@ import uk.ac.ncl.jcarlton.objects.Registration;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
+ * <h1>RegistrationGenerator</h1>
+ *
+ * Used to generate the registrations of the
+ * cars that the company is managing.
+ *
+ * @see uk.ac.ncl.jcarlton.objects.Registration
+ *
  * @author Jonathan Carlton
- *         17/10/2016
  */
 public final class RegistrationGenerator {
 
+    /**
+     * Get all of the registrations of the cars that the
+     * company manages.
+     *
+     * @return A {@code List<Registration>} of registrations
+     */
     public static List<Registration> registrations() {
         List<Registration> registrations = new ArrayList<>();
         registrations.add(Registration.getInstance("FP61", "RVG"));
@@ -45,40 +56,5 @@ public final class RegistrationGenerator {
         registrations.add(Registration.getInstance("NE32", "ASW"));
         registrations.add(Registration.getInstance("DZ61", "LFK"));
         return registrations;
-    }
-
-    public static List<Registration> generate() {
-        List<Registration> registrations = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            String twoLetters = generateLetters(2);
-            String digits = generateDigits();
-            String threeLetters = generateLetters(3);
-            registrations.add(Registration.getInstance(
-                    twoLetters + digits, threeLetters
-            ));
-        }
-        return registrations;
-    }
-
-    private static String generateDigits() {
-        Random random = new Random();
-        int first = random.nextInt(10);
-        int second = random.nextInt(10);
-        return String.valueOf(first) + String.valueOf(second);
-    }
-
-    private static String generateLetters(int length) {
-        final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        StringBuilder builder = new StringBuilder();
-        Random random = new Random();
-        if (length == 2) {
-            for (int i = 0; i < length; i++)
-                builder.append(alphabet.charAt(random.nextInt(alphabet.length())));
-            return builder.toString();
-        } else {
-            for (int i = 0; i < length; i++)
-                builder.append(alphabet.charAt(random.nextInt(alphabet.length())));
-            return builder.toString();
-        }
     }
 }

@@ -1,6 +1,7 @@
 package uk.ac.ncl.jcarlton.testing.objects;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import uk.ac.ncl.jcarlton.objects.DrivingLicense;
 import uk.ac.ncl.jcarlton.objects.Person;
@@ -25,7 +26,7 @@ public class DrivingLicenseTest {
     private DrivingLicense license;
 
     /**
-     *
+     *  Setup the test objects
      */
     @Before
     public void setUp() {
@@ -39,16 +40,24 @@ public class DrivingLicenseTest {
     }
 
     /**
+     *  Test that the {@code toString} method is
+     *  constructing the String representation
+     *  of a Driving license correctly.
      *
+     *  @see uk.ac.ncl.jcarlton.objects.DrivingLicense#toString()
      */
     @Test
     public void testToString() {
-        String expected = "JC-2011-" + license.getThirdComponent();
+        String expected = "JC-2011-" + license.getThirdComponent() + "-true";
         assertEquals(expected, license.toString());
     }
 
     /**
+     *  Test that the first component of the
+     *  license is being set and fetched
+     *  correctly.
      *
+     *  @see uk.ac.ncl.jcarlton.objects.DrivingLicense#getFirstComponent()
      */
     @Test
     public void getFirstComponent() {
@@ -56,7 +65,11 @@ public class DrivingLicenseTest {
     }
 
     /**
+     *  Test that the second component of the
+     *  license is being set and fetched
+     *  correctly.
      *
+     *  @see uk.ac.ncl.jcarlton.objects.DrivingLicense#getSecondComponent()
      */
     @Test
     public void getSecondComponent() {
@@ -65,30 +78,31 @@ public class DrivingLicenseTest {
     }
 
     /**
+     *  Test that the full license is being set
+     *  properly.
      *
+     *  @see uk.ac.ncl.jcarlton.objects.DrivingLicense#isFullLicense()
      */
     @Test
     public void isFullLicense() {
         assertTrue(license.isFullLicense());
     }
 
-    /**
-     *
-     */
-/*    @Test
-    public void processName() {
-        Calendar calendar = new GregorianCalendar(1993, 8, 27);
-        Person p = new Person("Jonathan", "Carlton", calendar.getTime());
-        String expected = "JC";
-        assertEquals(expected, DrivingLicense.processName(p));
-    }*/
 
-    /**
-     *
-     */
-/*    @Test
+    @Ignore
+    public void processName() {
+        // processName needs to be made public for it to work
+//        Calendar calendar = new GregorianCalendar(1993, 8, 27);
+//        Person p = new Person("Jonathan", "Carlton", calendar.getTime());
+//        String expected = "JC";
+//        assertEquals(expected, DrivingLicense.processName(p));
+    }
+
+
+    @Ignore
     public void generateSerial() {
-        assertTrue(DrivingLicense.generateSerial() > 0);
-        assertTrue(DrivingLicense.generateSerial() < 100);
-    }*/
+        // method needs to be made public for it to work.
+        //assertTrue(DrivingLicense.generateSerial() > 0);
+        // assertTrue(DrivingLicense.generateSerial() < 100);
+    }
 }

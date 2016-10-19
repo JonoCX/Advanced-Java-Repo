@@ -1,13 +1,11 @@
 package uk.ac.ncl.jcarlton.testing.app;
 
-import com.sun.org.apache.regexp.internal.RE;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import uk.ac.ncl.jcarlton.app.RentalManagement;
 import uk.ac.ncl.jcarlton.objects.*;
 
-import java.time.Period;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -37,6 +35,9 @@ public class RentalManagementTest {
     private Calendar dob;
     private Calendar licenseDate;
 
+    /**
+     * Setup the test objects
+     */
     @Before
     public void setUp()  {
         dob = new GregorianCalendar(1993, 8, 27);

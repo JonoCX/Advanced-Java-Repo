@@ -3,6 +3,14 @@ package uk.ac.ncl.jcarlton.objects;
 import java.util.*;
 
 /**
+ * <h1>Driving License</h1>
+ *
+ * The class represents Driving License's and ensures
+ * that they are unique.
+ *
+ * Use the {@code getInstance()} method to construct or
+ * fetch a Driving licence.
+ *
  * @author Jonathan Carlton
  */
 public class DrivingLicense {

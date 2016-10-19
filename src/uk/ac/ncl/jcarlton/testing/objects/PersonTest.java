@@ -5,6 +5,7 @@ import org.junit.Test;
 import uk.ac.ncl.jcarlton.objects.Person;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static org.junit.Assert.assertEquals;
@@ -43,7 +44,9 @@ public class PersonTest {
 
     /**
      * Test that when a null or empty first name is passed
-     * to the Person constructor it throws an <code>IllegalArgumentException</code>.
+     * to the Person constructor it throws an {@code IllegalArgumentException}.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#Person(String, String, Date, boolean, Date)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorThrowsFirstName() {
@@ -53,7 +56,9 @@ public class PersonTest {
 
     /**
      * Test that when a null or empty last name is passed
-     * to the Person constructor it throws an <code>IllegalArgumentException</code>.
+     * to the Person constructor it throws an {@code IllegalArgumentException}.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#Person(String, String, Date, boolean, Date)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorThrowsLastName() {
@@ -62,8 +67,10 @@ public class PersonTest {
     }
 
     /**
-     * Test that a <code>IllegalArgumentException</code> is thrown when
+     * Test that a {@code IllegalArgumentException} is thrown when
      * a null value is passed for the date of birth.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#Person(String, String, Date, boolean, Date)
      */
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorThrowsDateOfBirth() {
@@ -72,7 +79,9 @@ public class PersonTest {
 
     /**
      * Ensure that the correct String value is being returned
-     * when the <code>getFirstName()</code> method is called.
+     * when the {@code getFirstName()} method is called.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#getFirstName()
      */
     @Test
     public void getFirstName()  {
@@ -82,7 +91,9 @@ public class PersonTest {
 
     /**
      * Ensure that the correct String value is being returned
-     * when the <code>getLastName()</code> method is called.
+     * when the {@code getLastName()} method is called.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#getLastName()
      */
     @Test
     public void getLastName()  {
@@ -92,8 +103,10 @@ public class PersonTest {
 
     /**
      * Ensure that the correct Date object representation is
-     * being returned the <code>getDateOfBirth()</code> method
+     * being returned the {@code getDateOfBirth()} method
      * is called.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#getDateOfBirth()
      */
     @Test
     public void getDateOfBirth()  {
@@ -102,9 +115,11 @@ public class PersonTest {
     }
 
     /**
-     * Test that the <code>valueOf</code> method correctly
+     * Test that the {@code valueOf()} method correctly
      * parses a String that is made up of the Person
      * components.
+     *
+     * @see uk.ac.ncl.jcarlton.objects.Person#valueOf(String)
      */
     @Test
     public void testValueOf() throws Exception {

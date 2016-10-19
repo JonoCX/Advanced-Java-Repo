@@ -1,21 +1,35 @@
 package uk.ac.ncl.jcarlton.objects;
 
 /**
+ * <h1>SmallCar</h1>
+ *
+ * This class encapsulates the behaviour of a Small
+ * Car. Most of the behaviour is inherit, from the
+ * {@code Car}.
+ *
+ * @see uk.ac.ncl.jcarlton.objects.Car
+ * @see uk.ac.ncl.jcarlton.objects.AbstractCar
+ *
  * @author Jonathan Carlton
  */
 public final class SmallCar extends AbstractCar {
 
+    // the consumption rate of the Small Car
     private final static int CONSUMPTION_RATE = 20;
 
     /**
-     *
-     * @param registration
+     * Object constructor that calls {@code AbstractCar}
+     * constructor to create a Small Car object.
+     * @param registration  the registration of the car.
      */
     public SmallCar(Registration registration) {
         super(registration, 49);
     }
 
     /**
+     * The Small Car uses fuel at a constant consumption
+     * rate of 20km per 1lt of fuel.
+     *
      * {@inheritDoc}
      */
     @Override
@@ -39,6 +53,9 @@ public final class SmallCar extends AbstractCar {
         return useFuel(consumption);
     }
 
+    /**
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return getRegistration().toString() + " (S)";

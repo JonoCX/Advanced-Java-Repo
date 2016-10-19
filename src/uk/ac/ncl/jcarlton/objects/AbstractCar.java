@@ -30,15 +30,17 @@ public abstract class AbstractCar implements Car {
      * @param tankCap       the fuel capacity of the car.
      */
     AbstractCar(Registration registration, int tankCap) {
+        // the registration of car cannot be null
         if (registration == null)
             throw new IllegalArgumentException("Registration cannot be null.");
+        // the capacity has to be either 49 (small) or 60 (large)
         if (tankCap != 49 && tankCap != 60)
             throw new IllegalArgumentException("Tank capacity is incorrect, has to be either 49 (small) or 60 (large)");
 
         this.registrationNumber = registration;
         this.tankCapacity = tankCap;
         this.currentFuelLevel = tankCapacity; // all cars start as full
-        this.rented = false;
+        this.rented = false; // all cars start as not being rented.
     }
 
     /**

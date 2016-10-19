@@ -9,12 +9,13 @@ import java.util.*;
 
 /**
  * <h1>Car Rental Management</h1>
- *
+ * <p>
  * This is the class that the Car Rental Company will
  * use to manage their car rentals - essentially the
  * front-end to the entire project.
  *
  * @author Jonathan Carlton
+ * @see uk.ac.ncl.jcarlton.objects.Car
  */
 public final class RentalManagement {
 
@@ -22,7 +23,7 @@ public final class RentalManagement {
     private Map<Car, Person> rentedCars;
 
     /**
-     *  Object constructor.
+     * Object constructor.
      */
     public RentalManagement() {
         rentedCars = populateMap();
@@ -32,11 +33,11 @@ public final class RentalManagement {
      * Given the class type, count how many cars are
      * available to be rented.
      *
-     * @param type  either {@code SmallCar} or {@code LargeCar}, if
-     *              a class of another type is passed then the method
-     *              will just return -1.
+     * @param type either {@code SmallCar} or {@code LargeCar}, if
+     *             a class of another type is passed then the method
+     *             will just return -1.
      * @return the count of either {@code SmallCar} or {@code LargeCar} or
-     *              -1 if the class type is anything else.
+     * -1 if the class type is anything else.
      */
     public int availableCars(Class<?> type) {
         int count = 0;
@@ -67,7 +68,7 @@ public final class RentalManagement {
     public List<Car> getRentedCars() {
         List<Car> rented = new ArrayList<>();
         for (Car car : rentedCars.keySet()) {
-            if (car.isRented())
+            if (car.isRented()) // check if the current car is rented
                 rented.add(car);
         }
         return rented;
@@ -76,18 +77,21 @@ public final class RentalManagement {
     /**
      * Given a {@code Person} fetch the car that they
      * have rented from the rental company.
-     *
+     * <p>
      * Note: Can return {@code null} if the {@code Car}
      * doesn't exist.
      *
-     * @param person    the {@code Person} who has rented a car.
+     * @param person the {@code Person} who has rented a car.
      * @return the {@code Car} which they have rented.
      */
     public Car getCar(Person person) {
+        // cannot pass a null Person object to the method.
         if (person == null)
             throw new IllegalArgumentException("Cannot be a null Person.");
 
-        if (!(rentedCars.containsValue(person))) throw new IllegalArgumentException("Person has not rented a Car");
+        // the person hasn't rented a car from the car rental company
+        if (!(rentedCars.containsValue(person)))
+            throw new IllegalArgumentException("Person has not rented a Car");
 
         Car rentedCar = null;
         for (Map.Entry<Car, Person> m : rentedCars.entrySet()) {
@@ -134,9 +138,6 @@ public final class RentalManagement {
      * @see uk.ac.ncl.jcarlton.objects.LargeCar
      */
     public boolean issueCar(Person person, DrivingLicense license, Car car) {
-        // if there is a car of that type available
-        // if the car has a full tank of petrol at the start.
-
         // none of the parameters passed can be null.
         if (person == null)
             throw new IllegalArgumentException("Person cannot be null.");
@@ -254,6 +255,7 @@ public final class RentalManagement {
      *                                  passed to the method is a null value.
      */
     public int terminateRental(Person person) {
+        // the person object cannot be null
         if (person == null)
             throw new IllegalArgumentException("Person cannot be null.");
 

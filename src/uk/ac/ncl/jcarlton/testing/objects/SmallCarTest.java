@@ -38,6 +38,8 @@ public class SmallCarTest {
      *  Test that you're able to drive a valid distance in the
      *  {@code Car} and that the correct amount of fuel (to fill up) is
      *  returned.
+     *
+     *  @see uk.ac.ncl.jcarlton.objects.SmallCar#drive(int)
      */
     @Test
     public void driveValid() {
@@ -50,6 +52,8 @@ public class SmallCarTest {
      *  Test that a {@code IllegalArgumentException} is
      *  thrown when attempting to drive a negative amount
      *  of km's.
+     *
+     *  @see uk.ac.ncl.jcarlton.objects.SmallCar#drive(int)
      */
     @Test(expected = IllegalArgumentException.class)
     public void drivePassNegativeKM() {
@@ -60,6 +64,8 @@ public class SmallCarTest {
      *  Test that a {@code IllegalArgumentException} is
      *  thrown when attempting to drive the {@code Car} without
      *  fuel.
+     *
+     *  @see uk.ac.ncl.jcarlton.objects.SmallCar#drive(int)
      */
     @Test(expected = IllegalStateException.class)
     public void driveWithoutFuel() {
@@ -71,6 +77,8 @@ public class SmallCarTest {
      *  Test that a {@code IllegalArgumentException} is
      *  thrown when attempting to drive a {@code Car} when
      *  it hasn't been rented.
+     *
+     *  @see uk.ac.ncl.jcarlton.objects.SmallCar#drive(int)
      */
     @Test(expected = IllegalStateException.class)
     public void driveWhenNotRented() {
@@ -80,6 +88,7 @@ public class SmallCarTest {
 
     /**
      *  Test that the {@code Registration} is being set properly.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#getRegistration()
      */
     @Test
     public void getRegistration() {
@@ -88,6 +97,7 @@ public class SmallCarTest {
 
     /**
      *  Test that a {@code SmallCar} has a capacity of 49
+     *  @see uk.ac.ncl.jcarlton.objects.Car#getFuelCapacity()
      */
     @Test
     public void getFuelCapacity() {
@@ -96,6 +106,7 @@ public class SmallCarTest {
 
     /**
      *  Test that a {@code Car} starts with a full tank.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#getFuelAmount()
      */
     @Test
     public void getFuelAmount() {
@@ -104,6 +115,7 @@ public class SmallCarTest {
 
     /**
      *  Test that a {@code Car} has a full tank.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#isTankFull()
      */
     @Test
     public void isTankFull() {
@@ -112,6 +124,7 @@ public class SmallCarTest {
 
     /**
      *  Test that fuel is able to be added to the tank.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#addFuel(int)
      */
     @Test
     public void addFuelToTank() {
@@ -125,6 +138,7 @@ public class SmallCarTest {
      * Test that a {@code IllegalArgumentException} is thrown
      * when attempting to add a negative amount of fuel to the
      * {@code Car}
+     * @see uk.ac.ncl.jcarlton.objects.Car#addFuel(int)
      */
     @Test(expected = IllegalArgumentException.class)
     public void addNegativeAmountOfFuel() {
@@ -134,6 +148,7 @@ public class SmallCarTest {
     /**
      * Test that when attempting to add fuel to an already
      * full tank, it returns 0.
+     * @see uk.ac.ncl.jcarlton.objects.Car#addFuel(int)
      */
     @Test
     public void addToAlreadyFullTank() {
@@ -144,6 +159,7 @@ public class SmallCarTest {
      * Test that when attempting to add more than the tank
      * capacity, the overspill is disregarded and the tank
      * is just filled to capacity.
+     * @see uk.ac.ncl.jcarlton.objects.Car#addFuel(int)
      */
     @Test
     public void attemptToOverFillTank() {
@@ -162,6 +178,7 @@ public class SmallCarTest {
     /**
      * Test that adding a valid amount to the tank
      * is done correctly.
+     * @see uk.ac.ncl.jcarlton.objects.Car#useFuel(int)
      */
     @Test
     public void addAValidAmountToTank() {
@@ -173,6 +190,7 @@ public class SmallCarTest {
     /**
      *  Test that when attempting to use a negative amount
      *  of fuel a {@code IllegalArgumentException} is thrown.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#useFuel(int)
      */
     @Test(expected = IllegalArgumentException.class)
     public void useFuelNegativeAmount() {
@@ -183,6 +201,7 @@ public class SmallCarTest {
      * Test that when attempting to use more fuel than is
      * available in the tank, that it just returns
      * the capacity amount and the tank is set to be empty.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#useFuel(int)
      */
     @Test
     public void overUseFuel() {
@@ -195,6 +214,7 @@ public class SmallCarTest {
 
     /**
      * Test that using a valid amount of fuel is correct.
+     *  @see uk.ac.ncl.jcarlton.objects.Car#useFuel(int)
      */
     @Test
     public void useAValidAmountOfFuel() {
