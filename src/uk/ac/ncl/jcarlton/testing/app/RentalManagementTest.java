@@ -14,8 +14,9 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 /**
+ * <h1>JUnit test class for {@link RentalManagement}</h1>
+ *
  * @author Jonathan Carlton
- *         17/10/2016
  */
 public class RentalManagementTest {
 

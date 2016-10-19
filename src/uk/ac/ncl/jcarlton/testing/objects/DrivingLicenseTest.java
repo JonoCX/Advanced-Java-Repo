@@ -13,11 +13,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * <h1>DrivingLicenceTest</h1>
- *
- * JUnit test class for the Driving License class.
- *
- * @see uk.ac.ncl.jcarlton.objects.DrivingLicense
+ * <h1>JUnit Test class for {@link DrivingLicense}</h1>
  *
  * @author Jonathan Carlton
  */

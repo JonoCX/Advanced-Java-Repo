@@ -9,9 +9,7 @@ import uk.ac.ncl.jcarlton.objects.SmallCar;
 import static org.junit.Assert.*;
 
 /**
- * <h1>JUnit Test Case for Small Car</h1>
- *
- * @see uk.ac.ncl.jcarlton.objects.SmallCar
+ * <h1>JUnit test class for {@link SmallCar}</h1>
  *
  * This class tests the common functionality shared
  * between all cars.

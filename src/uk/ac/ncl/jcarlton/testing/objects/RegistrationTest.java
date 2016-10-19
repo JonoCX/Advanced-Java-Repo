@@ -7,11 +7,7 @@ import uk.ac.ncl.jcarlton.objects.Registration;
 import static org.junit.Assert.assertEquals;
 
 /**
- * <h1>RegistrationTest</h1>
- *
- * JUnit test class for the Registration object.
- *
- * @see uk.ac.ncl.jcarlton.objects.Registration
+ * <h1>JUnit test class for {@link Registration}</h1>
  *
  * @author Jonathan Carlton
  */

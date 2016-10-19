@@ -26,6 +26,8 @@ public final class Person {
      * @param firstName   The first name of the person.
      * @param lastName    The last name of the person.
      * @param dateOfBirth The date of birth of the person.
+     * @param fullLicense if the license is full or not
+     * @param licenseIssue  when the license was issued.
      * @throws IllegalArgumentException Thrown if a null or empty variable is passed
      *                                  as part of the construction.
      */
@@ -50,6 +52,8 @@ public final class Person {
      * Generate the persons driving license based on the
      * parameters passed to the object constructor.
      *
+     * @param full if the license is full or not
+     * @param licenseIssue when the license was issued
      * @return the persons driving license
      */
     private DrivingLicense generateLicense(boolean full, Date licenseIssue) {

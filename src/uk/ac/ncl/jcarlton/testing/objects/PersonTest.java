@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import uk.ac.ncl.jcarlton.objects.Person;
 
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -11,9 +12,7 @@ import java.util.GregorianCalendar;
 import static org.junit.Assert.assertEquals;
 
 /**
- * <h1>PersonTest</h1>
- *
- * JUnit test class for the Person object
+ * <h1>JUnit test class for {@link Person}</h1>
  *
  * @see uk.ac.ncl.jcarlton.objects.Person
  *
@@ -120,9 +119,11 @@ public class PersonTest {
      * components.
      *
      * @see uk.ac.ncl.jcarlton.objects.Person#valueOf(String)
+     * @throws ParseException thrown when the date cannot be
+     * correctly parsed.
      */
     @Test
-    public void testValueOf() throws Exception {
+    public void testValueOf() throws ParseException {
         String personString = p1.toString();
         System.out.println(personString);
         Person p1New = Person.valueOf(personString);

@@ -117,11 +117,9 @@ public final class RentalManagement {
      * <li>If they aren't older enough to rent the {@code Car} (Large = 25+ and Small = 20+)</li>
      * <li>The {@code Person} hasn't held their license for long enough (Large = 5 years+
      * and Small = 2 years+)</li></ul>
-     * </p>
      * <p>
      * Note: There is an assumption that the person using this method
      * will input Cars that do exist in the rental system.
-     * </p>
      *
      * @param person  the person who wants to rent a car
      * @param license the driving license of the person

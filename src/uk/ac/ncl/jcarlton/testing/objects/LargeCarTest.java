@@ -9,9 +9,7 @@ import uk.ac.ncl.jcarlton.objects.Registration;
 import static org.junit.Assert.assertEquals;
 
 /**
- * <h1>JUnit Test Case for Large Car</h1>
- *
- * @see uk.ac.ncl.jcarlton.objects.LargeCar
+ * <h1>JUnit test class for {@link LargeCar}</h1>
  *
  * Most of the common functionality of a car is
  * tested in the {@code SmallCarTest} class.
