@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="99.75" y="0.0">uk.ac.ncl.jcarlton.objects.Car</node>
+    <node x="302.0" y="701.0">uk.ac.ncl.jcarlton.objects.SmallCar</node>
+    <node x="0.0" y="690.0">uk.ac.ncl.jcarlton.objects.LargeCar</node>
+    <node x="31.75" y="278.0">uk.ac.ncl.jcarlton.objects.AbstractCar</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uk.ac.ncl.jcarlton.objects.LargeCar" target="uk.ac.ncl.jcarlton.objects.AbstractCar">
+      <point x="0.0" y="-71.0" />
+      <point x="141.0" y="665.0" />
+      <point x="158.0" y="665.0" />
+      <point x="-126.25" y="181.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.AbstractCar" target="uk.ac.ncl.jcarlton.objects.Car">
+      <point x="0.0" y="-181.0" />
+      <point x="0.0" y="114.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.SmallCar" target="uk.ac.ncl.jcarlton.objects.AbstractCar">
+      <point x="0.0" y="-60.0" />
+      <point x="427.5" y="665.0" />
+      <point x="410.5" y="665.0" />
+      <point x="126.25" y="181.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="276.5" y="416.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

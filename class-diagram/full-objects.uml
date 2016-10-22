@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="317.6125" y="0.0">uk.ac.ncl.jcarlton.objects.Registration</node>
+    <node x="0.0" y="146.0">uk.ac.ncl.jcarlton.objects.DrivingLicense</node>
+    <node x="380.875" y="526.0">uk.ac.ncl.jcarlton.app.RentalManagement</node>
+    <node x="36.0" y="358.0">uk.ac.ncl.jcarlton.objects.Person</node>
+    <node x="668.625" y="33.0">uk.ac.ncl.jcarlton.objects.Car</node>
+    <node x="506.125" y="391.0">uk.ac.ncl.jcarlton.objects.SmallCar</node>
+    <node x="264.125" y="380.0">uk.ac.ncl.jcarlton.objects.LargeCar</node>
+    <node x="352.8625" y="168.0">uk.ac.ncl.jcarlton.objects.AbstractCar</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uk.ac.ncl.jcarlton.app.RentalManagement" target="uk.ac.ncl.jcarlton.objects.SmallCar">
+      <point x="26.875" y="-26.0" />
+      <point x="515.25" y="496.0" />
+      <point x="601.625" y="496.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.app.RentalManagement" target="uk.ac.ncl.jcarlton.objects.Car">
+      <point x="80.625" y="-26.0" />
+      <point x="569.0" y="506.0" />
+      <point x="707.625" y="506.0" />
+      <point x="13.0" y="15.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.app.RentalManagement" target="uk.ac.ncl.jcarlton.objects.Person">
+      <point x="-80.625" y="-26.0" />
+      <point x="407.75" y="506.0" />
+      <point x="136.5" y="506.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.AbstractCar" target="uk.ac.ncl.jcarlton.objects.Registration">
+      <point x="-71.25" y="-59.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.LargeCar" target="uk.ac.ncl.jcarlton.objects.AbstractCar">
+      <point x="0.0" y="-37.0" />
+      <point x="375.125" y="333.0" />
+      <point x="424.1125" y="333.0" />
+      <point x="-71.25" y="59.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.AbstractCar" target="uk.ac.ncl.jcarlton.objects.Car">
+      <point x="71.25" y="-59.0" />
+      <point x="566.6125" y="121.0" />
+      <point x="681.625" y="121.0" />
+      <point x="-13.0" y="15.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.app.RentalManagement" target="uk.ac.ncl.jcarlton.objects.LargeCar">
+      <point x="-26.875" y="-26.0" />
+      <point x="461.5" y="496.0" />
+      <point x="375.125" y="496.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.DrivingLicense" target="uk.ac.ncl.jcarlton.objects.Person">
+      <point x="68.25" y="81.0" />
+      <point x="204.75" y="333.0" />
+      <point x="186.75" y="333.0" />
+      <point x="50.25" y="-59.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.Person" target="uk.ac.ncl.jcarlton.objects.DrivingLicense">
+      <point x="-50.25" y="-59.0" />
+      <point x="86.25" y="333.0" />
+      <point x="68.25" y="333.0" />
+      <point x="-68.25" y="81.0" />
+    </edge>
+    <edge source="uk.ac.ncl.jcarlton.objects.SmallCar" target="uk.ac.ncl.jcarlton.objects.AbstractCar">
+      <point x="0.0" y="-26.0" />
+      <point x="601.625" y="333.0" />
+      <point x="566.6125" y="333.0" />
+      <point x="71.25" y="59.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="360.5" y="289.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
